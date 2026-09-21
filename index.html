@@ -243,7 +243,7 @@
         .speech-bubble::after, .speech-bubble::before {
             content: '';
             position: absolute;
-            top: 50%;
+            top: 20%; /* Moved from 50% to point higher (at the head) */
             transform: translateY(-50%);
             border-style: solid;
         }
@@ -254,6 +254,8 @@
             border-width: 15px 0 15px 20px;
             border-color: transparent transparent transparent #1a1a1a;
             z-index: 1;
+            /* Slant it slightly upwards */
+            transform: translateY(-50%) rotate(-15deg); 
         }
 
         /* Inner white part of the tail */
@@ -262,6 +264,8 @@
             border-width: 12px 0 12px 18px;
             border-color: transparent transparent transparent #fff;
             z-index: 2;
+            /* Slant it slightly upwards */
+            transform: translateY(-50%) rotate(-15deg); 
         }
 
         /* Right Content */
@@ -411,14 +415,19 @@
 
             /* Speech Bubble */
             .speech-bubble {
-                top: 25vh;
+                top: 12vh; /* Moved up significantly to be next to head */
                 left: 1rem;
-                width: 220px;
+                width: 200px;
                 padding: 12px;
                 font-size: 0.75rem;
                 z-index: 6;
                 animation: bubbleShakeMobile 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
                 animation-delay: 2.2s; 
+            }
+            /* Position tail at the top-right of the bubble to point exactly at the head */
+            .speech-bubble::after, .speech-bubble::before {
+                top: 20%;
+                transform: translateY(-50%) rotate(-15deg);
             }
             .speech-bubble::after { right: -15px; border-width: 10px 0 10px 15px; }
             .speech-bubble::before { right: -11px; border-width: 8px 0 8px 11px; }
