@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101012">
+    <meta name="description" content="Yusshha в TikTok. Свежие видео, любимые моменты и ещё немного Юши.">
+    <title>Клипы — YUSHA</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="page-transition.css">
+    <link rel="stylesheet" href="clips.css">
+    <script src="page-transition.js" defer></script>
+    <script src="tiktok-config.js" defer></script>
+    <script src="clips.js" defer></script>
+</head>
+<body>
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+        <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z"/></symbol>
+        <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M6 7a7 7 0 0 1 12-1l2 6M4 12l2 6a7 7 0 0 0 12-1"/></symbol>
+        <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3v12.5a4 4 0 1 1-3-3.87M14 3c.7 4 3 6 7 6V5c-2 0-3.7-.7-4-2z"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+        <symbol id="i-up" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></symbol>
+        <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6L10 14m0-10H4v16h16v-6"/></symbol>
+    </svg>
+
+    <aside class="rail" aria-label="Навигация">
+        <a class="brand" href="index.html" data-page-link aria-label="YUSHA — главная">Y<span>.</span></a>
+        <a class="rail-home icon-button" href="index.html" data-page-link aria-label="На главную" title="На главную"><svg class="icon back"><use href="#i-arrow"/></svg></a>
+        <a class="rail-active icon-button" href="#videos" aria-label="Клипы" title="Клипы"><svg class="icon"><use href="#i-tiktok"/></svg></a>
+        <span class="rail-caption">YUSHA UNIVERSE</span>
+        <span class="rail-page">02 <span>/ 02</span></span>
+    </aside>
+
+    <main class="clips-main" id="main-content">
+        <header class="topbar">
+            <a href="index.html" data-page-link class="wordmark">YUSHA <span>/ КЛИПЫ</span></a>
+            <span class="sync-status" id="sync-status" role="status"><span class="status-dot"></span><span id="sync-label">TikTok-профиль</span></span>
+        </header>
+
+        <section class="profile" aria-labelledby="profile-name">
+            <div class="profile-copy">
+                <p class="eyebrow"><span></span> ВНЕ СТРИМА. В СВОЁМ РИТМЕ.</p>
+                <h1 id="profile-name">MORE<br>OF <span>YUSHA.</span></h1>
+                <p class="profile-tagline">Те самые моменты.<br>Теперь чуть ближе.</p>
+                <div class="profile-identity">
+                    <img id="profile-avatar" class="avatar" src="favicon.png" alt="" width="50" height="50">
+                    <div><strong id="display-name">Yusshha</strong><a id="profile-handle" href="https://www.tiktok.com/@yusshhik" target="_blank" rel="noopener noreferrer">@yusshhik <span>↗</span></a></div>
+                </div>
+                <p class="profile-bio" id="profile-bio" hidden></p>
+                <dl class="profile-stats" id="profile-stats" hidden></dl>
+                <div class="profile-actions">
+                    <button class="primary-button" id="watch-feed"><svg class="icon"><use href="#i-play"/></svg>Смотреть ленту</button>
+                    <a class="text-link" id="tiktok-link" href="https://www.tiktok.com/@yusshhik" target="_blank" rel="noopener noreferrer">В TikTok <svg class="icon"><use href="#i-external"/></svg></a>
+                </div>
+            </div>
+            <div class="profile-art" aria-hidden="true">
+                <div class="art-orbit"></div><span class="art-outline">YUKIO</span>
+                <img src="hero2.png" alt="" class="art-character" fetchpriority="high">
+                <div class="art-bottom"><span>UNFILTERED<br>UNSCRIPTED</span><svg class="icon"><use href="#i-tiktok"/></svg></div>
+                <span class="art-number">02</span>
+            </div>
+        </section>
+
+        <section class="videos-section" id="videos" aria-label="Видео TikTok">
+            <div class="video-toolbar">
+                <div class="tabs" role="tablist" aria-label="Просмотр видео">
+                    <button id="tab-feed" class="tab is-active" role="tab" aria-selected="true" aria-controls="feed-panel"><svg class="icon"><use href="#i-grid"/></svg><span id="feed-tab-label">Превью ленты</span><span id="new-count" class="new-count" hidden>0</span></button>
+                    <button id="tab-profile" class="tab" role="tab" aria-selected="false" aria-controls="profile-panel" tabindex="-1"><svg class="icon"><use href="#i-tiktok"/></svg>Профиль TikTok</button>
+                </div>
+                <button class="refresh-button" id="refresh-feed" aria-label="Обновить видео" title="Обновить видео"><svg class="icon"><use href="#i-refresh"/></svg><span>Обновить</span></button>
+            </div>
+            <div id="feed-panel" role="tabpanel" aria-labelledby="tab-feed" tabindex="0">
+                <div class="feed-notice" id="feed-notice"><span class="notice-mark">i</span><p>Это превью интерфейса. Настоящие видео @yusshhik — во вкладке <button id="show-profile-inline">«Профиль TikTok»</button>.</p><span class="preview-label">DESIGN PREVIEW</span></div>
+                <div class="video-grid" id="video-grid"></div>
+                <p class="empty-message" id="empty-message" hidden>Пока нет публичных видео. Загляни чуть позже.</p>
+                <button class="load-more" id="load-more" hidden>Показать ещё <svg class="icon"><use href="#i-down"/></svg></button>
+            </div>
+            <div id="profile-panel" role="tabpanel" aria-labelledby="tab-profile" tabindex="0" hidden>
+                <div class="embed-intro"><div><h2>Увидимся в ленте.</h2><p>Профиль и последние публикации @yusshhik.</p></div><span>TIKTOK / ORIGINAL</span></div>
+                <div id="creator-embed" class="creator-embed">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@yusshhik" data-unique-id="yusshhik" data-embed-type="creator" style="max-width: 720px; min-width: 288px;"><section><a href="https://www.tiktok.com/@yusshhik" target="_blank" rel="noopener noreferrer">Открыть @yusshhik в TikTok</a></section></blockquote>
+                </div>
+                <p class="embed-help" id="embed-help" role="status">Если профиль не появился, <a href="https://www.tiktok.com/@yusshhik" target="_blank" rel="noopener noreferrer">открой его в TikTok ↗</a>. Доступность зависит от TikTok и сети.</p>
+            </div>
+        </section>
+
+        <footer class="footer"><span>YUSHA <span>© 2026</span></span><span>STAY A LITTLE LONGER.</span><a href="index.html" data-page-link>На главную <svg class="icon back"><use href="#i-arrow"/></svg></a></footer>
+    </main>
+
+    <dialog class="video-dialog" id="video-dialog" aria-labelledby="viewer-title">
+        <div class="viewer-header"><span>YUSHA <span>/ <span id="viewer-title">КЛИПЫ</span></span></span><button class="icon-button" id="close-viewer" aria-label="Закрыть просмотр"><svg class="icon"><use href="#i-close"/></svg></button></div>
+        <div class="viewer-scroll" id="viewer-scroll" tabindex="0" aria-label="Вертикальная лента. Листайте вниз или используйте стрелки."></div>
+        <div class="viewer-nav"><button class="icon-button" id="previous-video" aria-label="Предыдущее видео"><svg class="icon"><use href="#i-up"/></svg></button><span id="viewer-position" aria-live="polite">1 / 4</span><button class="icon-button" id="next-video" aria-label="Следующее видео"><svg class="icon"><use href="#i-down"/></svg></button></div>
+        <p class="viewer-hint">Листай дальше <svg class="icon"><use href="#i-down"/></svg></p>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <noscript><p class="noscript">Для ленты нужен JavaScript. <a href="https://www.tiktok.com/@yusshhik">Перейти к профилю @yusshhik</a>.</p></noscript>
+</body>
+</html>

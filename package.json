@@ -1,0 +1,22 @@
+{
+  "name": "yusha-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server.mjs",
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "connect:tiktok": "node --env-file-if-exists=.env tiktok-auth.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build-static.mjs",
+    "cloud:check": "wrangler deploy --dry-run",
+    "cloud:deploy": "wrangler deploy",
+    "cloud:secrets": "node --env-file=.env scripts/prepare-cloudflare.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "wrangler": "^4.149.0"
+  }
+}

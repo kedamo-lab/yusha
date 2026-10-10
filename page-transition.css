@@ -1,0 +1,22 @@
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: page-out .55s cubic-bezier(.76,0,.24,1) both; }
+::view-transition-new(root) { animation: page-in .55s cubic-bezier(.76,0,.24,1) both; }
+@keyframes page-out { to { transform: translateX(-14%); opacity: 0; } }
+@keyframes page-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+.page-wipe { position: fixed; inset: 0; background: #7a1528; z-index: 10000; transform: translateX(101%); transition: transform .44s cubic-bezier(.76,0,.24,1); pointer-events: none; }
+html.is-leaving .page-wipe { transform: translateX(0); }
+html.is-leaving body { pointer-events: none; }
+.clips-launch { position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: column; align-items: center; gap: 17px; padding: 20px 17px; color: #fff; background: #191719; border: 1px solid #ffffff20; border-radius: 40px; text-decoration: none; font: 700 10px 'Montserrat', sans-serif; letter-spacing: 1.5px; box-shadow: 0 12px 36px #0002; transition: background .2s, box-shadow .2s; }
+.clips-launch:hover { background: #7a1528; box-shadow: 0 12px 36px #7a152840; }
+.clips-launch svg { width: 25px; height: 25px; }
+.clips-launch-number { opacity: .5; font-size: 9px; }
+.clips-launch:focus-visible { outline: 3px solid #dd647d; outline-offset: 5px; }
+@media (max-width: 768px) {
+    .clips-launch { top: auto; bottom: 108px; right: 18px; transform: none; flex-direction: row; gap: 12px; padding: 14px 18px; }
+    .clips-launch-number { display: none; }
+    .clips-launch svg { width: 20px; height: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

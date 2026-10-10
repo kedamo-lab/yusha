@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yusha-tiktok-api",
+  "main": "cloudflare/worker.mjs",
+  "compatibility_date": "2026-10-10",
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  "vars": { "SITE_ORIGIN": "https://yusha-lyart.vercel.app" },
+  "durable_objects": {
+    "bindings": [{ "name": "TIKTOK_FEED", "class_name": "TikTokFeed" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["TikTokFeed"] }]
+}
